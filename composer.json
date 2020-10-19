@@ -1,0 +1,17 @@
+{
+    "name": "wbk/business-plug",
+    "type": "1",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "php": ">=7.1"
+    },
+    "authors": [
+        {
+            "name": "caoganghui",
+            "email": "caoganghui@cmrpt.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
