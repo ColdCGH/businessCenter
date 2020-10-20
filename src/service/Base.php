@@ -35,13 +35,8 @@ class  Base
     protected function request($name,$args)
     {
         $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
-        $requestGet = ['idcard.query'];
-        $method = in_array($controller.'.'.$name,$requestGet) ? 'GET' : 'POST';
-        if ($method == 'GET'){
-            $argstring = http_build_query($args);
-        }
         $result = $this->request->post('/'.$controller.'/'.$name.(isset($argstring)?'?'.$argstring:''),
-            $args, $method,
+            $args, 'POST',
             ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
         if ($result['code'] == 1){
             return $result['data'];
