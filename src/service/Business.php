@@ -6,8 +6,10 @@ namespace business\service;
 /**
  * Class Business
  * @method array register($username,$password) 商户注册
- * @method array valid($username,$password) 验证用户密码
- * @method array update($id,$member,$info,$card,$third) 更新用户信息
+ * @method array valid($username,$password) 是否通过商户中心认证
+ * @method array memberValid($username) 用户是否绑定商户
+ * @method array update($id,$base,$detail,$certificates) 更新商户信息
+ * @method array query($id,$detail,$certificates) 查询商户信息
  * @package business\service
  */
 class Business extends Base
@@ -20,11 +22,18 @@ class Business extends Base
         'username',
         'password'
     ];
+    protected $argMemberValid = [
+        'username'
+    ];
     protected $argUpdate = [
         'id',
-        'member',
-        'info',
-        'card',
-        'third'
+        'base',
+        'detail',
+        'certificates',
+    ];
+    protected $argQuery = [
+        'id',
+        'detail',
+        'certificates',
     ];
 }
