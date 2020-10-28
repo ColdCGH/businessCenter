@@ -11,11 +11,13 @@ class  Base
     protected $key;
     protected $controler;
     protected $arg;
+    protected $secret_token;
 
-    public function __construct($url,$key)
+    public function __construct($url, $key, $token)
     {
         $this->request = new RequestUtil($url);
         $this->key = $key;
+        $this->secret_token = $token;
     }
 
     public function __call($name, $arguments)
@@ -37,7 +39,7 @@ class  Base
         $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
         $result = $this->request->post('/'.$controller.'/'.$name.(isset($argstring)?'?'.$argstring:''),
             $args, 'POST',
-            ['PLATFORM-KEY'=>$this->key,'Content-type'=>'application/x-www-form-urlencoded']);
+            ['PLATFORM-KEY'=>$this->key, 'secret_token' => $this->secret_token,'Content-type'=>'application/x-www-form-urlencoded']);
         if ($result['code'] == 1){
             return $result['data'];
         }

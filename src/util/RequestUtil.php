@@ -48,6 +48,7 @@ class RequestUtil
             }
             $config[0] = $mconf['baseurl'];
             $config[1] = $mconf['request_key'];
+            $config[2] = $mconf['secret_token'];
             return $config;
         }else{
             throw new \Exception('缺少配置!');

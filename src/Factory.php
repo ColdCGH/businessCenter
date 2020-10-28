@@ -16,8 +16,8 @@ class Factory {
     {
         $application = "business\\service\\{$name}";
 
-//        $config = RequestUtil::getConfig($config);
-        $config = ['http://api.bs.coolcgh.cn', '7fc7940b4f7f58b49c71bf9e237b633e'];
+        $config = RequestUtil::getConfig($config);
+//        $config = ['http://api.bs.coolcgh.cn', '7fc7940b4f7f58b49c71bf9e237b633e'];
 
         return new $application(...$config);
     }
