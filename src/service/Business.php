@@ -10,7 +10,7 @@ namespace business\service;
  * @method array memberValid($username) 用户是否绑定商户
  * @method array update($id,$base,$detail,$certificates) 更新商户信息
  * @method array query($id,$type) 查询商户信息 type['base','detail','certificates']
- * @method array list($page,$size,$order=['id'=>'desc']) 查询商户列表
+ * @method array list($page,$size,$where = [],$order=['id'=>'desc']) 查询商户列表
  * @package business\service
  */
 class Business extends Base
@@ -40,6 +40,7 @@ class Business extends Base
     protected $argList = [
         'page',
         'size',
+        'where',
         'order'
     ];
 }
