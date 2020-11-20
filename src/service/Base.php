@@ -9,7 +9,7 @@ class  Base
 {
     protected $request;
     protected $key;
-    protected $controler;
+    protected $controller;
     protected $arg;
     protected $secret_token;
 
@@ -36,7 +36,7 @@ class  Base
 
     protected function request($name,$args)
     {
-        $controller = ($this->controler?:strtolower(basename(str_replace('\\','/',static::class))));
+        $controller = ($this->controller?:strtolower(basename(str_replace('\\','/',static::class))));
         $result = $this->request->post('/'.$controller.'/'.$name.(isset($argstring)?'?'.$argstring:''),
             $args, 'POST',
             ['PLATFORM-KEY'=>$this->key, 'secret_token' => $this->secret_token,'Content-type'=>'application/x-www-form-urlencoded']);
@@ -46,7 +46,8 @@ class  Base
         throw new \Exception($result['msg'],$result['code']);
     }
 
-    protected function getArg($name) {
+    protected function getArg($name)
+    {
         $arg = 'arg'.ucfirst($name);
         return $this->$arg;
     }
