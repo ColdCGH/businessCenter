@@ -41,6 +41,7 @@ class Business extends Base
         'page',
         'size',
         'where',
-        'order'
+        'order',
+        'field'
     ];
 }
