@@ -1,8 +1,9 @@
 {
     "name": "wbk/business-plug",
+    "description": "wbk`s business-plug",
     "type": "1",
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "ext-json": "*"
     },
     "require-dev": {
