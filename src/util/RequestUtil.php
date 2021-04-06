@@ -44,14 +44,14 @@ class RequestUtil
         if (is_dir($path) && is_file($path.'/business.php')){
             $mconf = require $path.'/business.php';
             if (!isset($mconf['baseurl']) || !isset($mconf['request_key'])){
-                throw new \Exception('缺少配置!');
+                throw new \Exception('CODE:82002 配置有误!');
             }
             $config[0] = $mconf['baseurl'];
             $config[1] = $mconf['request_key'];
             $config[2] = $mconf['secret_token'];
             return $config;
         }else{
-            throw new \Exception('缺少配置!');
+            throw new \Exception('CODE:82001 缺少配置!');
         }
     }
 }
